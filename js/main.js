@@ -1,414 +1,224 @@
+/*  ---------------------------------------------------
+    Template Name: Ogani
+    Description:  Ogani eCommerce  HTML Template
+    Author: Colorlib
+    Author URI: https://colorlib.com
+    Version: 1.0
+    Created: Colorlib
+---------------------------------------------------------  */
+
+'use strict';
+
 (function ($) {
-"use strict";
-// TOP Menu Sticky
-$(window).on('scroll', function () {
-	var scroll = $(window).scrollTop();
-	if (scroll < 400) {
-    $("#sticky-header").removeClass("sticky");
-    $('#back-top').fadeIn(500);
-	} else {
-    $("#sticky-header").addClass("sticky");
-    $('#back-top').fadeIn(500);
-	}
-});
 
+    /*------------------
+        Preloader
+    --------------------*/
+    $(window).on('load', function () {
+        $(".loader").fadeOut();
+        $("#preloder").delay(200).fadeOut("slow");
 
-
-
-
-$(document).ready(function(){
-
-// mobile_menu
-var menu = $('ul#navigation');
-if(menu.length){
-	menu.slicknav({
-		prependTo: ".mobile_menu",
-		closedSymbol: '+',
-		openedSymbol:'-'
-	});
-};
-// blog-menu
-  // $('ul#blog-menu').slicknav({
-  //   prependTo: ".blog_menu"
-  // });
-
-// review-active
-$('.slider_active').owlCarousel({
-  loop:true,
-  margin:0,
-items:1,
-autoplay:true,
-navText:['<i class="ti-angle-left"></i>','<i class="ti-angle-right"></i>'],
-  nav:true,
-dots:false,
-autoplayHoverPause: true,
-autoplaySpeed: 800,
-  responsive:{
-      0:{
-          items:1,
-          nav:false,
-      },
-      767:{
-          items:1,
-          nav:false,
-      },
-      992:{
-          items:1,
-          nav:false
-      },
-      1200:{
-          items:1,
-          nav:false
-      },
-      1600:{
-          items:1,
-          nav:true
-      }
-  }
-});
-
-// review-active
-$('.testmonial_active ').owlCarousel({
-  loop:true,
-  margin:0,
-items:1,
-autoplay:true,
-navText:['<i class="ti-angle-left"></i>','<i class="ti-angle-right"></i>'],
-  nav:true,
-dots:false,
-autoplayHoverPause: true,
-autoplaySpeed: 800,
-
-  responsive:{
-      0:{
-          items:1,
-          dots:false,
-          nav:false,
-      },
-      767:{
-          items:1,
-          dots:false,
-          nav:false,
-      },
-      992:{
-          items:1,
-          nav:false
-      },
-      1200:{
-          items:1,
-          nav:false
-      },
-      1500:{
-          items:1
-      }
-  }
-});
-
-// review-active
-$('.case_active').owlCarousel({
-  loop:true,
-  margin:30,
-items:1,
-autoplay:true,
-navText:['<i class="ti-angle-left"></i>','<i class="ti-angle-right"></i>'],
-  nav:false,
-dots:true,
-autoplayHoverPause: true,
-autoplaySpeed: 800,
-  responsive:{
-      0:{
-          items:1,
-          nav:false
-      },
-      767:{
-          items:2,
-      },
-      992:{
-          items:3
-      },
-      1200:{
-          items:3
-      },
-      1500:{
-          items:3
-      }
-  }
-});
-
-// review-active
-$('.testmonial_active2').owlCarousel({
-  loop:true,
-  margin:0,
-items:1,
-autoplay:false,
-navText:['<i class="ti-angle-left"></i>','<i class="ti-angle-right"></i>'],
-  nav:false,
-dots:true,
-autoplayHoverPause: true,
-autoplaySpeed: 800,
-// dotsData: true,
-center: true,
-  responsive:{
-      0:{
-          items:1,
-          nav:false
-      },
-      767:{
-          items:1,
-          nav:false
-      },
-      992:{
-          items:1
-      },
-      1200:{
-          items:1
-      },
-      1500:{
-          items:1
-      }
-  }
-});
-
-// for filter
-  // init Isotope
-  var $grid = $('.grid').isotope({
-    itemSelector: '.grid-item',
-    percentPosition: true,
-    masonry: {
-      // use outer width of grid-sizer for columnWidth
-      columnWidth: 1
-    }
-  });
-
-  // filter items on button click
-  $('.portfolio-menu').on('click', 'button', function () {
-    var filterValue = $(this).attr('data-filter');
-    $grid.isotope({ filter: filterValue });
-  });
-
-  //for menu active class
-  $('.portfolio-menu button').on('click', function (event) {
-    $(this).siblings('.active').removeClass('active');
-    $(this).addClass('active');
-    event.preventDefault();
-	});
-  
-  // wow js
-  new WOW().init();
-
-  // counter 
-  $('.counter').counterUp({
-    delay: 10,
-    time: 10000
-  });
-
-/* magnificPopup img view */
-$('.popup-image').magnificPopup({
-	type: 'image',
-	gallery: {
-	  enabled: true
-	}
-});
-
-/* magnificPopup img view */
-$('.img-pop-up').magnificPopup({
-	type: 'image',
-	gallery: {
-	  enabled: true
-	}
-});
-
-/* magnificPopup video view */
-$('.popup-video').magnificPopup({
-	type: 'iframe'
-});
-
-
-  // scrollIt for smoth scroll
-  $.scrollIt({
-    upKey: 38,             // key code to navigate to the next section
-    downKey: 40,           // key code to navigate to the previous section
-    easing: 'linear',      // the easing function for animation
-    scrollTime: 600,       // how long (in ms) the animation takes
-    activeClass: 'active', // class given to the active nav element
-    onPageChange: null,    // function(pageIndex) that is called when page is changed
-    topOffset: 0           // offste (in px) for fixed top navigation
-  });
-
-  // scrollup bottom to top
-  $.scrollUp({
-    scrollName: 'scrollUp', // Element ID
-    topDistance: '4500', // Distance from top before showing element (px)
-    topSpeed: 300, // Speed back to top (ms)
-    animation: 'fade', // Fade, slide, none
-    animationInSpeed: 200, // Animation in speed (ms)
-    animationOutSpeed: 200, // Animation out speed (ms)
-    scrollText: '<i class="fa fa-angle-double-up"></i>', // Text for element
-    activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
-  });
-
-
-  // blog-page
-
-  //brand-active
-$('.brand-active').owlCarousel({
-  loop:true,
-  margin:30,
-items:1,
-autoplay:true,
-  nav:false,
-dots:false,
-autoplayHoverPause: true,
-autoplaySpeed: 800,
-  responsive:{
-      0:{
-          items:1,
-          nav:false
-
-      },
-      767:{
-          items:4
-      },
-      992:{
-          items:7
-      }
-  }
-});
-
-// blog-dtails-page
-
-  //project-active
-$('.project-active').owlCarousel({
-  loop:true,
-  margin:30,
-items:1,
-// autoplay:true,
-navText:['<i class="Flaticon flaticon-left-arrow"></i>','<i class="Flaticon flaticon-right-arrow"></i>'],
-nav:true,
-dots:false,
-// autoplayHoverPause: true,
-// autoplaySpeed: 800,
-  responsive:{
-      0:{
-          items:1,
-          nav:false
-
-      },
-      767:{
-          items:1,
-          nav:false
-      },
-      992:{
-          items:2,
-          nav:false
-      },
-      1200:{
-          items:1,
-      },
-      1501:{
-          items:2,
-      }
-  }
-});
-
-if (document.getElementById('default-select')) {
-  $('select').niceSelect();
-}
-
-  //about-pro-active
-$('.details_active').owlCarousel({
-  loop:true,
-  margin:0,
-items:1,
-// autoplay:true,
-navText:['<i class="ti-angle-left"></i>','<i class="ti-angle-right"></i>'],
-nav:true,
-dots:false,
-// autoplayHoverPause: true,
-// autoplaySpeed: 800,
-  responsive:{
-      0:{
-          items:1,
-          nav:false
-
-      },
-      767:{
-          items:1,
-          nav:false
-      },
-      992:{
-          items:1,
-          nav:false
-      },
-      1200:{
-          items:1,
-      }
-  }
-});
-
-});
-
-// resitration_Form
-$(document).ready(function() {
-	$('.popup-with-form').magnificPopup({
-		type: 'inline',
-		preloader: false,
-		focus: '#name',
-
-		// When elemened is focused, some mobile browsers in some cases zoom in
-		// It looks not nice, so we disable it:
-		callbacks: {
-			beforeOpen: function() {
-				if($(window).width() < 700) {
-					this.st.focus = false;
-				} else {
-					this.st.focus = '#name';
-				}
-			}
-		}
-  });
-  var wow = new WOW(
-    {
-      boxClass:     'wow',      // animated element css class (default is wow)
-      animateClass: 'animated', // animation css class (default is animated)
-      offset:       0,          // distance to the element when triggering the animation (default is 0)
-      mobile:       true,       // trigger animations on mobile devices (default is true)
-      live:         true,       // act on asynchronously loaded content (default is true)
-      callback:     function(box) {
-        // the callback is fired every time an animation is started
-        // the argument that is passed in is the DOM node being animated
-      },
-      scrollContainer: null,    // optional scroll container selector, otherwise use window,
-      resetAnimation: true,     // reset animation on end (default is true)
-    }
-  );
-  wow.init();
-});
-
-
-
-//------- Mailchimp js --------//  
-function mailChimp() {
-  $('#mc_embed_signup').find('form').ajaxChimp();
-}
-mailChimp();
-
-
-
-        // Search Toggle
-        $("#search_input_box").hide();
-        $("#search").on("click", function () {
-            $("#search_input_box").slideToggle();
-            $("#search_input").focus();
+        /*------------------
+            Gallery filter
+        --------------------*/
+        $('.featured__controls li').on('click', function () {
+            $('.featured__controls li').removeClass('active');
+            $(this).addClass('active');
         });
-        $("#close_search").on("click", function () {
-            $('#search_input_box').slideUp(500);
-        });
-        // Search Toggle
-        $("#search_input_box").hide();
-        $("#search_1").on("click", function () {
-            $("#search_input_box").slideToggle();
-            $("#search_input").focus();
-        });
+        if ($('.featured__filter').length > 0) {
+            var containerEl = document.querySelector('.featured__filter');
+            var mixer = mixitup(containerEl);
+        }
+    });
 
-})(jQuery);	
+    /*------------------
+        Background Set
+    --------------------*/
+    $('.set-bg').each(function () {
+        var bg = $(this).data('setbg');
+        $(this).css('background-image', 'url(' + bg + ')');
+    });
+
+    //Humberger Menu
+    $(".humberger__open").on('click', function () {
+        $(".humberger__menu__wrapper").addClass("show__humberger__menu__wrapper");
+        $(".humberger__menu__overlay").addClass("active");
+        $("body").addClass("over_hid");
+    });
+
+    $(".humberger__menu__overlay").on('click', function () {
+        $(".humberger__menu__wrapper").removeClass("show__humberger__menu__wrapper");
+        $(".humberger__menu__overlay").removeClass("active");
+        $("body").removeClass("over_hid");
+    });
+
+    /*------------------
+		Navigation
+	--------------------*/
+    $(".mobile-menu").slicknav({
+        prependTo: '#mobile-menu-wrap',
+        allowParentLinks: true
+    });
+
+    /*-----------------------
+        Categories Slider
+    ------------------------*/
+    $(".categories__slider").owlCarousel({
+        loop: true,
+        margin: 0,
+        items: 4,
+        dots: false,
+        nav: true,
+        navText: ["<span class='fa fa-angle-left'><span/>", "<span class='fa fa-angle-right'><span/>"],
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        smartSpeed: 1200,
+        autoHeight: false,
+        autoplay: true,
+        responsive: {
+
+            0: {
+                items: 1,
+            },
+
+            480: {
+                items: 2,
+            },
+
+            768: {
+                items: 3,
+            },
+
+            992: {
+                items: 4,
+            }
+        }
+    });
+
+
+    $('.hero__categories__all').on('click', function(){
+        $('.hero__categories ul').slideToggle(400);
+    });
+
+    /*--------------------------
+        Latest Product Slider
+    ----------------------------*/
+    $(".latest-product__slider").owlCarousel({
+        loop: true,
+        margin: 0,
+        items: 1,
+        dots: false,
+        nav: true,
+        navText: ["<span class='fa fa-angle-left'><span/>", "<span class='fa fa-angle-right'><span/>"],
+        smartSpeed: 1200,
+        autoHeight: false,
+        autoplay: true
+    });
+
+    /*-----------------------------
+        Product Discount Slider
+    -------------------------------*/
+    $(".product__discount__slider").owlCarousel({
+        loop: true,
+        margin: 0,
+        items: 3,
+        dots: true,
+        smartSpeed: 1200,
+        autoHeight: false,
+        autoplay: true,
+        responsive: {
+
+            320: {
+                items: 1,
+            },
+
+            480: {
+                items: 2,
+            },
+
+            768: {
+                items: 2,
+            },
+
+            992: {
+                items: 3,
+            }
+        }
+    });
+
+    /*---------------------------------
+        Product Details Pic Slider
+    ----------------------------------*/
+    $(".product__details__pic__slider").owlCarousel({
+        loop: true,
+        margin: 20,
+        items: 4,
+        dots: true,
+        smartSpeed: 1200,
+        autoHeight: false,
+        autoplay: true
+    });
+
+    /*-----------------------
+		Price Range Slider
+	------------------------ */
+    var rangeSlider = $(".price-range"),
+        minamount = $("#minamount"),
+        maxamount = $("#maxamount"),
+        minPrice = rangeSlider.data('min'),
+        maxPrice = rangeSlider.data('max');
+    rangeSlider.slider({
+        range: true,
+        min: minPrice,
+        max: maxPrice,
+        values: [minPrice, maxPrice],
+        slide: function (event, ui) {
+            minamount.val('$' + ui.values[0]);
+            maxamount.val('$' + ui.values[1]);
+        }
+    });
+    minamount.val('$' + rangeSlider.slider("values", 0));
+    maxamount.val('$' + rangeSlider.slider("values", 1));
+
+    /*--------------------------
+        Select
+    ----------------------------*/
+    $("select").niceSelect();
+
+    /*------------------
+		Single Product
+	--------------------*/
+    $('.product__details__pic__slider img').on('click', function () {
+
+        var imgurl = $(this).data('imgbigurl');
+        var bigImg = $('.product__details__pic__item--large').attr('src');
+        if (imgurl != bigImg) {
+            $('.product__details__pic__item--large').attr({
+                src: imgurl
+            });
+        }
+    });
+
+    /*-------------------
+		Quantity change
+	--------------------- */
+    var proQty = $('.pro-qty');
+    proQty.prepend('<span class="dec qtybtn">-</span>');
+    proQty.append('<span class="inc qtybtn">+</span>');
+    proQty.on('click', '.qtybtn', function () {
+        var $button = $(this);
+        var oldValue = $button.parent().find('input').val();
+        if ($button.hasClass('inc')) {
+            var newVal = parseFloat(oldValue) + 1;
+        } else {
+            // Don't allow decrementing below zero
+            if (oldValue > 0) {
+                var newVal = parseFloat(oldValue) - 1;
+            } else {
+                newVal = 0;
+            }
+        }
+        $button.parent().find('input').val(newVal);
+    });
+
+})(jQuery);
